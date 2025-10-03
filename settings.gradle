@@ -2,3 +2,9 @@ rootProject.name = "partition-example"
 
 include ":modules:client"
 include ":modules:service"
+include ":modules:nestparent:nest1"
+include ":modules:nestparent:nest2"
+include ":modules:nestparent:nest3"
+
+project(":modules:nestparent:nest1").name = "nested1"
+project(":modules:nestparent:nest3").name = "nested3"

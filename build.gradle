@@ -2,29 +2,8 @@ plugins {
     id 'java'
 }
 
-repositories {
-    mavenCentral()
+allprojects {
+    repositories {
+        mavenCentral()
+    }
 }
-
-dependencies {
-    // Add your dependencies here
-}
-
-tasks.register('buildService', Copy) {
-    from 'modules/service'
-    into "$buildDir/service"
-}
-
-tasks.register('buildClient', Copy) {
-    from 'modules/client'
-    into "$buildDir/client"
-}
-
-tasks.register('buildEverythingElse', Copy) {
-    from '.'
-    include '**'
-    exclude 'modules/**'
-    into "$buildDir/everything-else"
-}
-
-build.dependsOn buildService, buildClient, buildEverythingElse
